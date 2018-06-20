@@ -27,11 +27,6 @@ in IJulia, this causes the frontend to load the webio javascript bundle.
 setup_provider(s::Union{Symbol, AbstractString}) = setup_provider(Val(Symbol(s)))
 export setup_provider
 
-include(joinpath("providers", "atom.jl"))
-include(joinpath("providers", "blink.jl"))
-include(joinpath("providers", "mux.jl"))
-include(joinpath("providers", "ijulia.jl"))
-
 const providers_initialised = Set{Symbol}()
 
 function setup(provider::Symbol)
@@ -45,5 +40,10 @@ setup(provider::AbstractString) = setup(Symbol(provider))
 Requires.@init begin
     push!(Observables.addhandler_callbacks, WebIO.setup_comm)
 end
+
+include(joinpath("providers", "atom.jl"))
+include(joinpath("providers", "blink.jl"))
+include(joinpath("providers", "mux.jl"))
+include(joinpath("providers", "ijulia.jl"))
 
 end # module

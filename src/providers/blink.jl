@@ -1,6 +1,5 @@
-@require Blink begin
-
 using AssetRegistry
+using Blink
 
 const bundlepath = joinpath(dirname(@__FILE__), "..", "..",
                             "assets", "webio", "dist",
@@ -50,4 +49,3 @@ end
 WebIO.setup_provider(::Val{:blink}) = nothing  # blink setup has no side-effects
 WebIO.setup(:blink)
 
-end

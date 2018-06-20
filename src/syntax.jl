@@ -1,4 +1,4 @@
-export @dom_str, @js, @js_str
+export @dom_str, @js_str
 
 # adapted from Hiccup.jl
 function cssparse(s)
