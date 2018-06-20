@@ -12,7 +12,6 @@ function lowerdeps(name, imp)
     query_parts = split(imp, "?") # remove anything after ?
     imp_path = query_parts[1]
 
-    @show imp_path
     if startswith(imp_path, "/pkg/")
         Base.warn_once("/pkg/ URLs are deprecated, load files with their absolute path in Scope")
         url = imp
